@@ -28,7 +28,16 @@ describe Timebacus::ReportActivity do
   context 'with description missing' do
     subject { Timebacus::ReportActivity.new 1800, '' }
 
-    it 'returns id of new activity' do
+    it 'raises ArgumentError' do
+      -> {subject.execute }.should raise_error(ArgumentError, 'description')
+    end
+  end
+
+  context 'with negative duration' do
+    subject { Timebacus::ReportActivity.new -1800, 'creating bugs' }
+
+    it 'raises ArgumentError' do
+      -> {subject.execute }.should raise_error(ArgumentError, 'duration')
     end
   end
 end
