@@ -6,9 +6,7 @@ module Timebacus
     end
 
     def execute
-      activity = Activity.new(@duration, @description)
-      ActivityRepo.store(activity)
-      activity
+      ActivityRepository.store(Activity.new(@duration, @description)).id
     end
   end
 end

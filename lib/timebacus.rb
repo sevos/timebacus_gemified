@@ -1,5 +1,9 @@
 require "timebacus/version"
 
 module Timebacus
-  # Your code goes here...
+  require "timebacus/models/activity"
+
+  require "timebacus/repositories/activity_repository.rb"
+
+  require "timebacus/use_cases/report_activity"
 end
